@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brochure Chamonix</title>
+<style>
+    /* ===== Reset & base ===== */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#f4f4f9;}
+    h1,h2,h3 {color:#1a1a1a;}
+    a {text-decoration:none; color:#0056b3;}
+    a:hover {text-decoration:underline;}
+
+    /* ===== Container ===== */
+    .container {max-width: 1200px; margin: auto; padding: 2rem;}
+    .section {margin-bottom: 3rem;}
+
+    /* ===== Header ===== */
+    header {text-align:center; margin-bottom:2rem;}
+    header h1 {font-size:2.5rem; margin-bottom:0.5rem;}
+    header p {font-size:1.1rem; color:#555;}
+
+    /* ===== Hotel cards ===== */
+    .hotels {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;}
+    .hotel {flex:1 1 45%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    .hotel img {width:100%; height:200px; object-fit:cover;}
+    .hotel-content {padding:1rem;}
+    .hotel-content h2 {margin-bottom:0.5rem; color:#004080;}
+    .hotel-content p {margin-bottom:0.5rem;}
+    .hotel-gallery {display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:0.5rem;}
+    .hotel-gallery img {height:80px; object-fit:cover; border-radius:5px;}
+
+    /* ===== Itinéraire ===== */
+    .itineraire h2 {color:#004080; margin-bottom:1rem;}
+    .jour {background:#e6f0ff; border-left:5px solid #004080; padding:1rem; margin-bottom:1rem; border-radius:5px;}
+    .jour h3 {margin-bottom:0.5rem;}
+    .jour ul {margin-left:1.2rem; list-style-type: disc;}
+	
+	.jour2 {background:#e6f0ff; border-left:5px solid #004080; padding:1rem; margin-bottom:1rem; border-radius:5px;}
+    .jour2 h3 {margin-bottom:0.5rem;}
+    .jour2 ul {margin-left:1.2rem; list-style-type: disc;}
+	
+	/* ===== Itinéraire ===== */
+.jour {
+    display: flex;
+    align-items: center;        /* centre verticalement le texte et les images */
+    justify-content: space-between;
+    background: #e6f0ff;
+    border-left: 5px solid #004080;
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+    border-radius: 12px;
+    gap: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jour2 {
+    display: flex;
+    align-items: center;        /* centre verticalement le texte et les images */
+    justify-content: space-between;
+    background: #FFD7CF;
+    border-left: 5px solid #004080;
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+    border-radius: 12px;
+    gap: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jour:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.jour2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Texte aligné à gauche mais centré verticalement */
+.jour .texte {
+    flex: 1;
+    text-align: left;          /* alignement gauche */
+}
+
+.jour2 .texte {
+    flex: 1;
+    text-align: left;          /* alignement gauche */
+}
+
+/* Images multiples */
+.jour img {
+    width: 48%;                /* deux images côte à côte */
+    max-width: 220px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jour2 img {
+    width: 48%;                /* deux images côte à côte */
+    max-width: 220px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jour img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.jour2 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .jour {
+        flex-direction: column;
+        text-align: center;     /* texte centré sur mobile */
+    }
+    .jour .texte {
+        text-align: center;     /* texte centré sous mobile */
+    }
+    .jour img {
+        width: 80%;
+        max-width: 400px;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .jour2 {
+        flex-direction: column;
+        text-align: center;     /* texte centré sur mobile */
+    }
+    .jour2 .texte {
+        text-align: center;     /* texte centré sous mobile */
+    }
+    .jour2 img {
+        width: 80%;
+        max-width: 400px;
+        margin-top: 1rem;
+    }
+}
+
+
+    
+    /* ===== Plan ===== */
+    .plan {text-align:center; margin-top:2rem;}
+    .plan img {max-width:100%; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    
+    /* ===== Comparatif ===== */
+    table {width:100%; border-collapse:collapse; margin-top:1rem; background:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    table th, table td {padding:0.8rem; text-align:center; border-bottom:1px solid #ddd;}
+    table th {background:#004080; color:#fff;}
+    
+    /* ===== Footer ===== */
+    footer {text-align:center; margin-top:3rem; padding:1rem 0; background:#004080; color:#fff; border-radius:10px;}
+    footer a {color:#ffd700;}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HEADER -->
+    <header>
+        <h1>Chamonix : Séjour 6 jours pour moins de 1500€</h1>
+        <p>Choisissez entre deux hôtels 4★ et suivez un itinéraire flexible pour découvrir les merveilles de Chamonix et du Mont-Blanc.</p>
+    </header>
+
+    <!-- HÔTELS -->
+    <section class="section hotels">
+        <div class="hotel">
+            <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/64dc985fc843c0e96d30cc2e_AN_M8637-p-500.webp" alt="Lykke Hôtel & Spa Chamonix">
+            <div class="hotel-content">
+                <h2>Lykke Hôtel & Spa Chamonix</h2>
+                <p>Hôtel 4★ moderne avec spa Cinq Mondes, piscine intérieure et vue sur le Mont-Blanc.</p>
+				<p>Du 17/11 au 22/11 chambre double classique + petit déjeuner + (Accès journalier au spa / adulte) → 797€</p>
+                <div class="hotel-gallery">
+                    <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/65ca887b8c48bf76b8f1b31f_AN_M1742-p-500.webp" alt="">
+                    <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/65ca898139a0017aa3fdb466_AN_M1925-p-500.webp" alt="">
+                    <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/64ee107fa08c7dcdad5db938_AN_M0461-p-500.webp" alt="">
+                    <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/65ca8bf7208e92fcbbfa2233_AN_M2029-p-500.webp" alt="">
+                    <img src="https://images.openai.com/thumbnails/url/FkuybHicu5meUVJSUGylr5-al1xUWVCSmqJbkpRnoJdeXJJYkpmsl5yfq5-Zm5ieWmxfaAuUsXL0S7F0Tw4O8c6JdHENdU6v8HQLNg8pCS-O8qryMg41dzTwzI8Ica4Kz4sKSUkrqMpLVyu2NTQAAAe_JTk" alt="">
+                    <img src="https://cdn.prod.website-files.com/64c004f590005d258e25ef71/66a21eff205289e205ced2e4_likkespa-40-p-500.webp" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/158203509.jpg?k=58b8db1ee0fbef5c78801cc59582f512b5f9cc4175efec37f291e55865401542&o=" alt="Alpina Eclectic Hotel Chamonix">
+            <div class="hotel-content">
+                <h2>Alpina Eclectic Hotel</h2>
+                <p>Hôtel 4★ central avec spa, jacuzzi et chambres modernes avec vue sur le Mont-Blanc.</p>
+				<p>Du 17/11 au 22/11 chambre double classique + petit déjeuner + (1h spa / adulte et / jour) → 797€</p>
+                <div class="hotel-gallery">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/310670506.jpg?k=4ae41c956af22d64ca5b79df1dac8fd5a934d9c677cd9e88ee4609f880bb3142&o=" alt="">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/310670517.jpg?k=2671d88ffffab520e9005da27783184a3baf1dfa671f9b664c947c61cf9ee886&o=" alt="">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/158203335.jpg?k=8dcceff0317cbb00b859e1873a55c917e82eead33d3e07f9bbeead9b5841f290&o=" alt="">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/125044813.jpg?k=f328cf60698ea3fafcd180347773c6a17f1e7cc282da8745bc90c5a2602882c8&o=" alt="">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/158203402.jpg?k=4e678051d0260d8d95ab79b47b83c69470f4ad57572812f1a0eb79e838ad39c4&o=" alt="">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/125053837.jpg?k=e74c8db9daa751a39e8c6a7cdca43c6a26cc50a7f497018a6987627ecf0eeaaf&o=" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ITINÉRAIRE -->
+<section class="section itineraire">
+    <h2>Itinéraire proposé (6 jours — flexible)</h2>
+
+    <!-- Jour 1 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 1 — Arrivée & détente</h3>
+            <ul>
+                <li>Arrivée à Chamonix, installation à l’hôtel 4★.</li>
+                <li>Balade dans le centre-ville et le long de la rivière l’Arve.</li>
+                <li>Dîner savoyard (tartiflette, fondues, raclette). → 80€</li>
+				<a href="https://www.vinsurvin-chamonix.com/malabar-princess-restaurant-savoyard/"><li>Option A : Malabar Princess</li></a>
+				<a href="https://lemonchu-chamonix.fr/"><li>Option B : Le Monchu</li></a>
+            </ul>
+        </div>
+        <img src="https://live.staticflickr.com/5651/22394651094_e6c2cbc25d_b.jpg" alt="Arrivée à Chamonix">
+    </div>
+
+    <!-- Jour 2 -->
+    <div class="jour2">
+        <div class="texte">
+            <h3>Jour 2 — Aiguille du Midi + balcon panoramique</h3>
+            <ul>
+                <li>Téléphérique Aiguille du Midi pour vues à 3 842 m sur le Mont-Blanc.→ Fermé du 03/11 au 19/12</li>
+                <li>Après-midi : petite randonnée depuis Plan de l’Aiguille.</li>
+				<li>Patinoire de Chamonix → Fermé du 30/10 au 19/12</li>
+                <li>Soirée : spa à l’hôtel.</li>
+            </ul>
+        </div>
+        <img src="https://www.datocms-assets.com/144383/1730191462-home_aiguille-du-midi-ete3.webp" alt="Aiguille du Midi">
+    </div>
+	
+	
+	    <!-- Jour 2 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 2 — Promenade au coeur du Mont Blanc</h3>
+            <ul>
+                <li>Promenade à la Cascade du Dard.</li>
+                <li>Soirée : spa à l’hôtel.</li>
+            </ul>
+        </div>
+        <img src="https://www.chamonix.com/sites/default/files/styles/ogimage/public/sit/images/69276/8428361.jpg?itok=aH0ZVb76" alt="Cascade du Dard">
+    </div>
+
+
+    <!-- Jour 3 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 3 — Mer de Glace / Montenvers</h3>
+            <ul>
+                <li>Train à crémaillère Mer de Glace, visite de la grotte et glaciarium. (Grotte Fermé) → 62€</li>
+                <li>Retour en ville pour Shopping & cafés</li>
+            </ul>
+        </div>
+        <img src="https://api.cloudly.space/resize/crop/1200/627/60/aHR0cHM6Ly9zdGF0aWMuYXBpZGFlLXRvdXJpc21lLmNvbS9maWxlc3RvcmUvb2JqZXRzLXRvdXJpc3RpcXVlcy9pbWFnZXMvMjMyLzQvMjQ1NzcyNTYuanBn/image.jpg" alt="Mer de Glace">
+    </div>
+
+    <!-- Jour 4 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 4 — Grande rando : Lac Blanc ou Lac des Gaillands</h3>
+            <ul>
+                <li>Option A: Randonnée au Lac Blanc (panoramas splendides, risquée avec la neige ou gelée en novembre).</li>
+				<li>Option B: Randonnée au Lac des Gaillands.</li>
+                <li>Retour à l’hôtel et soirée détente.</li>
+            </ul>
+        </div>
+        <img src="https://ambitionoutdoor.com/wp-content/uploads/2018/03/lac-blanc-massif-aiguilles-rouges-chamonix-mont-blanc-slideshow.jpg" alt="Lac Blanc">
+		<img src="https://www.chamonix.com/sites/default/files/styles/ogimage/public/sit/images/151113/8428553.jpg?itok=AQ0DETxh">
+    </div>
+
+    <!-- Jour 5 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 5 — Détente au cœur du Mont-Blanc</h3>
+            <ul>
+                <li>Journée au QC Terme Chamonix. → 168€</li>
+                <li>Soirée : spa / hammam à l’hôtel.</li>
+            </ul>
+        </div>
+        <img src="https://cdn.iris-etourism.io/uploads/passy_montblanc/db3/39-98-15098407.webp" alt="QC Terme Chamonix">
+    </div>
+
+    <!-- Jour 6 -->
+    <div class="jour">
+        <div class="texte">
+            <h3>Jour 6 — Petit tour & départ</h3>
+            <ul>
+                <li>Promenade, photos et café avec vue sur le Mont-Blanc.</li>
+                <li>Check-out et départ.</li>
+            </ul>
+        </div>
+        <img src="https://media.lesechos.com/api/v1/images/view/63f397d62f345c023561ebab/1280x720/2517889-les-plus-belles-terrasses-de-montagne-web-tete-0703452235356.jpg">
+
+    </div>
+</section>
+
+
+    <!-- COMPARATIF -->
+    <section class="section">
+        <h2>Comparatif rapide</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    <th>Lykke Hôtel & Spa</th>
+                    <th>Alpina Eclectic Hotel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Emplacement</td>
+                    <td>Centre-ville</td>
+                    <td>Centre-ville</td>
+                </tr>
+                <tr>
+                    <td>Vue Mont-Blanc</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr>
+                    <td>Spa Cinq Mondes</td>
+                    <td>Oui</td>
+                    <td>Non</td>
+                </tr>
+                <tr>
+                    <td>Piscine intérieure</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr>
+                    <td>Jacuzzi</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr>
+                    <td>Ambiance</td>
+                    <td>Féérique</td>
+                    <td>Moderne</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Pour réserver ou obtenir plus d'informations : 
+        <a href="https://www.booking.com/hotel/fr/chamonix-centre.fr.html">Lykke Hôtel & Spa</a> | 
+        <a href="https://www.booking.com/hotel/fr/alpina.html">Alpina Eclectic Hotel</a></p>
+		<p>By Thomas le BG</p>
+    </footer>
+</div>
+
+</body>
+</html>
