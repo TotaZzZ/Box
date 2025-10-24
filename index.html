@@ -5,213 +5,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brochure Chamonix</title>
 <style>
-    /* ===== Reset & base ===== */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#f4f4f9;}
-    h1,h2,h3 {color:#1a1a1a;}
-    a {text-decoration:none; color:#0056b3;}
-    a:hover {text-decoration:underline;}
+/* ===== Reset & base ===== */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: #f5f7fb;
+    color: #2b2b2b;
+    line-height: 1.7;
+}
+h1,h2,h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #0d2b4e;
+}
+a {color:#004e92; transition:0.3s;}
+a:hover {opacity:0.75;}
 
-    /* ===== Container ===== */
-    .container {max-width: 1200px; margin: auto; padding: 2rem;}
-    .section {margin-bottom: 3rem;}
+/* ===== Container ===== */
+.container {max-width:1200px; margin:auto; padding:2rem;}
 
-    /* ===== Header ===== */
-    header {text-align:center; margin-bottom:2rem;}
-    header h1 {font-size:2.5rem; margin-bottom:0.5rem;}
-    header p {font-size:1.1rem; color:#555;}
+/* ===== Header ===== */
+header {
+    text-align:center;
+    margin-bottom:3rem;
+    padding-bottom:1rem;
+    border-bottom:2px solid #dce4f3;
+}
+header h1 {
+    font-size:2.8rem;
+    color:#002c54;
+}
+header p {
+    font-size:1.15rem;
+    color:#555;
+    max-width:900px;
+    margin:auto;
+}
 
-    /* ===== Hotel cards ===== */
-    .hotels {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;}
-    .hotel {flex:1 1 45%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-    .hotel img {width:100%; height:200px; object-fit:cover;}
-    .hotel-content {padding:1rem;}
-    .hotel-content h2 {margin-bottom:0.5rem; color:#004080;}
-    .hotel-content p {margin-bottom:0.5rem;}
-    .hotel-gallery {display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:0.5rem;}
-    .hotel-gallery img {height:80px; object-fit:cover; border-radius:5px;}
+/* ===== Hotel Cards ===== */
+.hotels {
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+}
+.hotel {
+    flex:1 1 48%;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 6px 25px rgba(0,0,0,0.08);
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+.hotel:hover {
+    transform:translateY(-6px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+.hotel img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.hotel-content {
+    padding:1.3rem 1.5rem 1.6rem;
+}
+.hotel-content h2 {
+    margin-bottom:.6rem;
+    color:#003b73;
+}
+.hotel-content p {
+    margin-bottom:.4rem;
+    font-size:.95rem;
+    color:#555;
+}
+.hotel-gallery {
+    margin-top:1rem;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:8px;
+}
+.hotel-gallery img {
+    height:90px;
+    border-radius:8px;
+    object-fit:cover;
+    transition:0.25s;
+}
+.hotel-gallery img:hover {
+    transform:scale(1.06);
+}
 
-    /* ===== Itinéraire ===== */
-    .itineraire h2 {color:#004080; margin-bottom:1rem;}
-    .jour {background:#e6f0ff; border-left:5px solid #004080; padding:1rem; margin-bottom:1rem; border-radius:5px;}
-    .jour h3 {margin-bottom:0.5rem;}
-    .jour ul {margin-left:1.2rem; list-style-type: disc;}
-	
-	.jour2 {background:#e6f0ff; border-left:5px solid #004080; padding:1rem; margin-bottom:1rem; border-radius:5px;}
-    .jour2 h3 {margin-bottom:0.5rem;}
-    .jour2 ul {margin-left:1.2rem; list-style-type: disc;}
-	
-	/* ===== Itinéraire ===== */
+/* ===== Itinéraire ===== */
+.itineraire {
+    margin-top:4rem;
+}
+.itineraire h2 {
+    margin-bottom:1.5rem;
+}
+
+/* Carte jour uniforme */
 .jour {
-    display: flex;
-    align-items: center;        /* centre verticalement le texte et les images */
-    justify-content: space-between;
-    background: #e6f0ff;
-    border-left: 5px solid #004080;
-    padding: 1.8rem;
-    margin-bottom: 1.8rem;
-    border-radius: 12px;
-    gap: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1.8rem;
+    margin-bottom:2rem;
+    padding:1.8rem;
+    background:#edf3ff;
+    border-radius:14px;
+    border-left:6px solid #004080;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    transition:0.25s;
 }
-
-.jour2 {
-    display: flex;
-    align-items: center;        /* centre verticalement le texte et les images */
-    justify-content: space-between;
-    background: #FFD7CF;
-    border-left: 5px solid #004080;
-    padding: 1.8rem;
-    margin-bottom: 1.8rem;
-    border-radius: 12px;
-    gap: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.jour:nth-child(even) {
+    background:#edf3ff;
 }
-
 .jour:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform:translateY(-5px);
+    box-shadow:0 8px 28px rgba(0,0,0,0.12);
+}
+.jour .texte {flex:1;}
+
+.jour ul {
+    list-style:disc;
+    margin-left:1.2rem;
+    margin-top:.6rem;
 }
 
-.jour2:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-/* Texte aligné à gauche mais centré verticalement */
-.jour .texte {
-    flex: 1;
-    text-align: left;          /* alignement gauche */
-}
-
-.jour2 .texte {
-    flex: 1;
-    text-align: left;          /* alignement gauche */
-}
-
-/* Images multiples */
+/* Images du jour alignées & premium */
 .jour img {
-    width: 48%;                /* deux images côte à côte */
-    max-width: 220px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    object-fit: cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width:45%;
+    max-width:240px;
+    border-radius:14px;
+    object-fit:cover;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+    transition:0.3s;
 }
-
-.jour2 img {
-    width: 48%;                /* deux images côte à côte */
-    max-width: 220px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    object-fit: cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .jour img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transform:scale(1.05);
+    box-shadow:0 12px 26px rgba(0,0,0,0.25);
 }
 
-.jour2 img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+/* ===== Plan & comparatif ===== */
+.plan img {
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    margin-top:2rem;
 }
 
-/* Responsive mobile */
-@media (max-width: 768px) {
-    .jour {
-        flex-direction: column;
-        text-align: center;     /* texte centré sur mobile */
-    }
-    .jour .texte {
-        text-align: center;     /* texte centré sous mobile */
-    }
-    .jour img {
-        width: 80%;
-        max-width: 400px;
-        margin-top: 1rem;
-    }
+table {
+    width:100%;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    margin-top:1.5rem;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+th {
+    background:#004080;
+    color:#fff;
+    padding:1rem;
+}
+td {
+    padding:.8rem;
+    border-bottom:1px solid #e6e6e6;
 }
 
-@media (max-width: 768px) {
-    .jour2 {
-        flex-direction: column;
-        text-align: center;     /* texte centré sur mobile */
-    }
-    .jour2 .texte {
-        text-align: center;     /* texte centré sous mobile */
-    }
-    .jour2 img {
-        width: 80%;
-        max-width: 400px;
-        margin-top: 1rem;
-    }
+/* ===== Footer ===== */
+footer {
+    margin-top:4rem;
+    text-align:center;
+    padding:1.5rem;
+    background:#00315a;
+    color:#fff;
+    border-radius:12px;
+}
+footer a {color:#ffd700; font-weight:500;}
+
+/* ===== Mobile ===== */
+@media(max-width:900px) {
+    .hotels {flex-direction:column;}
+    .hotel {flex:1 1 100%;}
+}
+@media(max-width:768px) {
+    .jour {flex-direction:column;}
+    .jour img {width:100%; max-width:420px;}
+    .jour .texte, .hotel-content {text-align:center;}
 }
 
-
-/* ===== Responsive Hotels (mobile) ===== */
-@media (max-width: 768px) {
-
-    .hotels {
-        flex-direction: column;       /* Les hôtels passent l'un sous l'autre */
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .hotel {
-        flex: 1 1 100%;               /* Prend toute la largeur */
-    }
-
-    .hotel img {
-        height: 180px;                /* Moins haut pour éviter un scroll inutile */
-    }
-
-    .hotel-content {
-        padding: 1rem;
-        text-align: center;           /* Texte centré = plus lisible en mobile */
-    }
-
-    .hotel-gallery {
-        grid-template-columns: repeat(2, 1fr);  /* Passe à 2 colonnes au lieu de 3 */
-        gap: 8px;
-    }
-
-    .hotel-gallery img {
-        height: 70px;
-    }
-}
-
-/* Ultra petit écran (<480px) */
-@media (max-width: 480px) {
-    .hotel-gallery {
-        grid-template-columns: repeat(1, 1fr);  /* 1 image par ligne */
-    }
-
-    .hotel-gallery img {
-        height: 120px;
-    }
-}
-
-
-    
-    /* ===== Plan ===== */
-    .plan {text-align:center; margin-top:2rem;}
-    .plan img {max-width:100%; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-    
-    /* ===== Comparatif ===== */
-    table {width:100%; border-collapse:collapse; margin-top:1rem; background:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-    table th, table td {padding:0.8rem; text-align:center; border-bottom:1px solid #ddd;}
-    table th {background:#004080; color:#fff;}
-    
-    /* ===== Footer ===== */
-    footer {text-align:center; margin-top:3rem; padding:1rem 0; background:#004080; color:#fff; border-radius:10px;}
-    footer a {color:#ffd700;}
 </style>
+
+
 </head>
 <body>
 
