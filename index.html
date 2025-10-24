@@ -154,6 +154,50 @@
 }
 
 
+/* ===== Responsive Hotels (mobile) ===== */
+@media (max-width: 768px) {
+
+    .hotels {
+        flex-direction: column;       /* Les hôtels passent l'un sous l'autre */
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .hotel {
+        flex: 1 1 100%;               /* Prend toute la largeur */
+    }
+
+    .hotel img {
+        height: 180px;                /* Moins haut pour éviter un scroll inutile */
+    }
+
+    .hotel-content {
+        padding: 1rem;
+        text-align: center;           /* Texte centré = plus lisible en mobile */
+    }
+
+    .hotel-gallery {
+        grid-template-columns: repeat(2, 1fr);  /* Passe à 2 colonnes au lieu de 3 */
+        gap: 8px;
+    }
+
+    .hotel-gallery img {
+        height: 70px;
+    }
+}
+
+/* Ultra petit écran (<480px) */
+@media (max-width: 480px) {
+    .hotel-gallery {
+        grid-template-columns: repeat(1, 1fr);  /* 1 image par ligne */
+    }
+
+    .hotel-gallery img {
+        height: 120px;
+    }
+}
+
+
     
     /* ===== Plan ===== */
     .plan {text-align:center; margin-top:2rem;}
